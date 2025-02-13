@@ -1,0 +1,129 @@
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Full-Screen Background */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('backgroundpink.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+/* Floating Hearts Animation */
+@keyframes float-hearts {
+    0% { transform: translateY(100vh) scale(0.6); opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.3); opacity: 0; }
+}
+
+.floating-heart {
+    position: absolute;
+    color: red;
+    font-size: 24px;
+    animation: float-hearts 5s linear infinite;
+}
+
+/* Snow Animation */
+@keyframes snowfall {
+    0% { transform: translateY(0px); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.snowflake {
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    opacity: 0.8;
+    animation: snowfall 10s linear infinite;
+}
+
+/* Airplane Taking Off Animation */
+@keyframes airplane-takeoff {
+    0% { left: -10%; bottom: 5%; transform: rotate(0deg); }
+    50% { left: 50%; bottom: 50%; transform: rotate(10deg); }
+    100% { left: 110%; bottom: 80%; transform: rotate(15deg); }
+}
+
+.airplane {
+    position: absolute;
+    bottom: 5%;
+    left: -10%;
+    font-size: 40px;
+    animation: airplane-takeoff 10s linear infinite;
+}
+
+/* Heart Button Styling */
+.heart-button {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff4081;
+    color: white;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, background 0.3s;
+}
+
+.heart-button:hover {
+    background: #ff1744;
+    transform: scale(1.2);
+}
+
+/* Toggle Snow Button */
+#toggleSnow {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #ff80ab;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+#toggleSnow:hover {
+    background: #ff4081;
+}
+
+/* Fireworks Effect */
+.firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: gold;
+    border-radius: 50%;
+    animation: explode 0.6s linear forwards;
+}
+
+@keyframes explode {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(3); opacity: 0; }
+}
+
+/* Text Styling */
+h1 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ff4081;
+    font-size: 36px;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 2px 2px 10px rgba(255, 100, 150, 0.8);
+}
