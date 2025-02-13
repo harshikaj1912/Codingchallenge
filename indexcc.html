@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Cityscape</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background -->
+    <div class="background"></div>
+
+    <!-- Buildings -->
+    <div class="buildings"></div>
+
+    <!-- Airplane Taking Off -->
+    <div class="airplane">✈️</div>
+
+    <!-- Valentine's Message -->
+    <h1>Happy Valentine's Day! 💖</h1>
+
+    <!-- Heart Button -->
+    <button class="heart-button" onclick="spawnHearts()">💗</button>
+
+    <!-- Toggle Snow Button -->
+    <button id="toggleSnow" onclick="toggleSnow()">Toggle Snow ❄️</button>
+
+    <script>
+        // Function to create floating hearts
+        function createHearts() {
+            for (let i = 0; i < 20; i++) { 
+                let heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.classList.add("floating-heart");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (Math.random() * 3 + 3) + "s"; 
+                heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+                document.body.appendChild(heart);
+            }
+        }
+        createHearts();
+
+        // Function to create snowfall effect
+        let snowEnabled = true;
+        function createSnowflakes() {
+            for (let i = 0; i < 50; i++) { 
+                let snowflake = document.createElement("div");
+                snowflake.innerHTML = "❄️";
+                snowflake.classList.add("snowflake");
+                snowflake.style.left = Math.random() * 100 + "vw";
+                snowflake.style.animationDuration = (Math.random() * 5 + 5) + "s";
+                snowflake.style.fontSize = (Math.random() * 10 + 10) + "px";
+                document.body.appendChild(snowflake);
+            }
+        }
+        createSnowflakes();
+
+        // Function to toggle snowfall on/off
+        function toggleSnow() {
+            let snowflakes = document.querySelectorAll(".snowflake");
+            snowflakes.forEach(flake => {
+                flake.style.display = snowEnabled ? "none" : "block";
+            });
+            snowEnabled = !snowEnabled;
+        }
+
+        // Function to spawn floating hearts when clicking the button
+        function spawnHearts() {
+            for (let i = 0; i < 10; i++) {
+                let heart = document.createElement("div");
+                heart.innerHTML = "💖";
+                heart.classList.add("floating-heart");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (Math.random() * 3 + 5) + "s";
+                document.body.appendChild(heart);
+            }
+        }
+
+        // Fireworks Effect on Click
+        document.addEventListener("click", function(event) {
+            for (let i = 0; i < 10; i++) {
+                let firework = document.createElement("div");
+                firework.classList.add("firework");
+                firework.style.left = event.clientX + "px";
+                firework.style.top = event.clientY + "px";
+                firework.style.animationDelay = `${Math.random() * 0.3}s`;
+                document.body.appendChild(firework);
+                setTimeout(() => firework.remove(), 600);
+            }
+        });
+    </script>
+
+</body>
+</html>
